@@ -63,6 +63,3 @@ it will NOT connect to the internet. Learn more about installing an APK file fro
 - Download & run the latest .apk file from the [releases](https://github.com/Matteljay/mastermindy-android/releases) page
 - Alternatively, you can download it from F-Droid [here](https://f-droid.org/packages/eth.matteljay.mastermindy/)
 
-## Contact info & donations
-
-See the [contact](CONTACT.md) file.
