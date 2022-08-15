@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MasterMindy</string>
+    <string name="app_name">Master mind</string>
     <string name="action_restart">Restart</string>
     <string name="title_activity_settings">Settings</string>
     <string name="donate_text">Fun game? Donate to Matteljay@pm.me \nTap to copy bitcoin address</string>
@@ -13,8 +13,8 @@
     <string name="pawn_color_assort">Pawn color assortment</string>
     <string name="pawn_fields_num">Pawn field amount</string>
     <string name="none">none</string>
-    <string name="fill_all_fields">Fill \'em all</string>
-    <string name="you_won_game">You won \\o/</string>
+    <string name="fill_all_fields">Fill all</string>
+    <string name="you_won_game">You won</string>
     <string name="out_of_turns">Out of turns</string>
     <string name="exit_dialog_title">Exit</string>
     <string name="exit_dialog_body">Do you want to leave the game without saving?</string>

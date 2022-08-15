@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eth.matteljay.mastermindy">
+    package="eth.bumbumapps.mastermindy">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SettingsActivity"
+            android:name="eth.bumbumapps.mastermindy.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName="eth.bumbumapps.mastermindy.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eth.matteljay.mastermindy.MainActivity" />
+                android:value="eth.bumbumapps.mastermindy.MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="eth.bumbumapps.mastermindy.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <!-- android:launchMode="singleInstance" -->

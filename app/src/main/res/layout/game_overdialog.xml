@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/game_overpopup"
+    android:layout_width="match_parent"
+    android:background="#A6221F35"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/game_over_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:background="@android:color/transparent"
+        android:layout_centerInParent="true"
+        android:textColor="#FFC107"/>
+</RelativeLayout>

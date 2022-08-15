@@ -1,5 +1,6 @@
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <ListPreference
         android:defaultValue="4"
@@ -29,7 +30,7 @@
         android:title="@string/max_turncount" />
 
     <ListPreference
-        android:defaultValue="@string/none"
+        android:defaultValue="5"
         android:entries="@array/opt_gameTime"
         android:entryValues="@array/opt_gameTime"
         android:key="gameTime"
@@ -38,7 +39,7 @@
         android:title="@string/max_time_game_min" />
 
     <ListPreference
-        android:defaultValue="@string/none"
+        android:defaultValue="30"
         android:entries="@array/opt_turnTime"
         android:entryValues="@array/opt_turnTime"
         android:key="turnTime"
@@ -61,10 +62,5 @@
         android:key="screenKeepOn"
         android:title="@string/keep_screen_on" />
 
-    <Preference
-        android:selectable="true"
-        android:key="btnCopyCrypto"
-        android:title="MasterMindy [[version]]"
-        android:summary="@string/donate_text" />
 
 </PreferenceScreen>
