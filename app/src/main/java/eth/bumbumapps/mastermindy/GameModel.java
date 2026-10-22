@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import mmcore.CodeProcessor;
 import mmcore.HintStruct;
 import mmcore.StartupGenerator;
@@ -35,7 +35,7 @@ public class GameModel {
 
     public GameModel(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        persistVM = ViewModelProviders.of(mainActivity).get(PersistVM.class);
+        persistVM = new ViewModelProvider(mainActivity).get(PersistVM.class);
     }
 
     public void readSettings() {

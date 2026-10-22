@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 public class ActionBtn {
     private final MainActivity mainActivity;
@@ -26,7 +26,7 @@ public class ActionBtn {
         fab = mainActivity.findViewById(R.id.fab);
         fab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(mainActivity, R.color.fab)));
         playField = mainActivity.findViewById(R.id.playField);
-        persistVM = ViewModelProviders.of(mainActivity).get(PersistVM.class);
+        persistVM = new ViewModelProvider(mainActivity).get(PersistVM.class);
         LinearLayout scrollField = mainActivity.findViewById(R.id.scrollField);
         scrollField.removeAllViews();
     }

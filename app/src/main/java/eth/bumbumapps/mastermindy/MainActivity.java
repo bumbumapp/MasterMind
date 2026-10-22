@@ -10,7 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     private GameModel gameModel;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        persistVM = ViewModelProviders.of(this).get(PersistVM.class);
+        persistVM = new ViewModelProvider(this).get(PersistVM.class);
 
         // Remove 'drag-return' animation
         View theContentView = findViewById(android.R.id.content);

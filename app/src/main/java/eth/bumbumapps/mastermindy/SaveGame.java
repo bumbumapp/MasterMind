@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 public class SaveGame {
     private final String PERSIST_OBJECT = "persist_object";
@@ -16,7 +16,7 @@ public class SaveGame {
 
     public SaveGame(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        persistVM = ViewModelProviders.of(mainActivity).get(PersistVM.class);
+        persistVM = new ViewModelProvider(mainActivity).get(PersistVM.class);
         prefs = PreferenceManager.getDefaultSharedPreferences(mainActivity);
     }
 

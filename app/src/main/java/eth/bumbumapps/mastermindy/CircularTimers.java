@@ -3,7 +3,7 @@ package eth.bumbumapps.mastermindy;
 import android.os.CountDownTimer;
 import android.widget.ProgressBar;
 
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 public class CircularTimers {
     private final long TIMER_RESOLUTION = 100;
@@ -18,7 +18,7 @@ public class CircularTimers {
     public CircularTimers(MainActivity mainActivity, GameModel gameModel) {
         this.mainActivity = mainActivity;
         this.gameModel = gameModel;
-        persistVM = ViewModelProviders.of(mainActivity).get(PersistVM.class);
+        persistVM = new ViewModelProvider(mainActivity).get(PersistVM.class);
         gameProgressBar = mainActivity.findViewById(R.id.gameProgressBar);
         turnProgressBar = mainActivity.findViewById(R.id.turnProgressBar);
     }
