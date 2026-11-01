@@ -97,7 +97,7 @@ public class GameModel {
 
     public void processTurnEvent() {
         if(persistVM.isGameFrozen) {
-            mainActivity.resetGame();
+            mainActivity.newGameAfterFinishedGame();
             return;
         }
         // Check if all fields filled

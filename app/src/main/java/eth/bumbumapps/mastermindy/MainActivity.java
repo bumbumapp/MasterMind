@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.ViewModelProvider;
+
+import eth.bumbumapps.mastermindy.ads.AdsManager;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     private GameModel gameModel;
@@ -62,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         if(savedInstanceState == null) {
             gameModel.freshGame();
         }
+        AdsManager ads = AdsManager.get(this);
+        ads.init(this);
+        ads.loadBanner(this, (FrameLayout) findViewById(R.id.ad_container));
     }
 
     @Override
@@ -82,6 +88,15 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         gameModel.freshGame();
         gameModel.resumeGame();
         gameModel.showToast(getString(R.string.new_game));
+    }
+
+    /** New game after a finished one: a natural break, so an interstitial may show first (hms build, capped). */
+    public void newGameAfterFinishedGame() {
+        AdsManager.get(this).onBreakPoint(this, () -> {
+            if (!isFinishing() && !isDestroyed()) {
+                resetGame();
+            }
+        });
     }
 
     public boolean isGameFrozen() {

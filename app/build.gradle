@@ -1,5 +1,16 @@
 apply plugin: 'com.android.application'
 
+// Huawei Ads (Petal) slot IDs for the AppGallery (hms) build; override with -PHMS_BANNER_ID=... or a
+// gitignored ads.properties. Debug builds always use Huawei's public test slots.
+def adsProps = new Properties()
+def adsFile = rootProject.file('ads.properties')
+if (adsFile.exists()) adsFile.withInputStream { adsProps.load(it) }
+def adId = { String key, String fallback -> ((project.findProperty(key) ?: adsProps.getProperty(key))?.toString()?.trim()) ?: fallback }
+def HMS_TEST_BANNER_ID = 'testw6vs28auh3'
+def HMS_TEST_INTERSTITIAL_ID = 'testb4znbuh3n2'
+def HMS_BANNER_ID = adId('HMS_BANNER_ID', 'i8y94txzfc')
+def HMS_INTERSTITIAL_ID = adId('HMS_INTERSTITIAL_ID', 'g7gffkqy6p')
+
 android {
     namespace 'eth.bumbumapps.mastermindy'
     compileSdk 36
@@ -8,7 +19,7 @@ android {
         minSdk 24
         targetSdk 36
 
-        versionCode 2
+        versionCode 5
         versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -28,8 +39,23 @@ android {
         debug {
         }
     }
+    // play = Google Play (no ads), hms = Huawei AppGallery (Huawei Ads, no Google Mobile Services).
+    flavorDimensions = ['store']
+    productFlavors {
+        play {
+            dimension 'store'
+        }
+        hms {
+            dimension 'store'
+            resValue 'string', 'hms_banner_id', HMS_BANNER_ID
+            resValue 'string', 'hms_interstitial_id', HMS_INTERSTITIAL_ID
+            resValue 'string', 'hms_test_banner_id', HMS_TEST_BANNER_ID
+            resValue 'string', 'hms_test_interstitial_id', HMS_TEST_INTERSTITIAL_ID
+        }
+    }
     buildFeatures {
         buildConfig true
+        resValues true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -58,6 +84,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'com.google.code.gson:gson:2.13.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.9.4'
+    hmsImplementation 'com.huawei.hms:ads-lite:13.4.91.301'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
